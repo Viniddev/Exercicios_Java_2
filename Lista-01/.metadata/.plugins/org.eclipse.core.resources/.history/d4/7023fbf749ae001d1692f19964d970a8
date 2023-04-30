@@ -1,0 +1,15 @@
+package exercicio03;
+import java.util.Scanner;
+
+public class Exercicio03 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		float salario, salarioAjustado, valeTransporte;
+		int tempoDeCasa = 0;
+		System.out.print("-------------------------------------------------------");
+		System.out.print("Empresa ABCDário. Sempre trabalhando por você");
+		System.out.print("-------------------------------------------------------\n\n");
+		
+	}
+}

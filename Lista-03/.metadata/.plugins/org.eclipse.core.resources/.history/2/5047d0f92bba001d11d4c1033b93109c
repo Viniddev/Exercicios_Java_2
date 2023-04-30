@@ -1,0 +1,53 @@
+package exercicio01;
+import java.util.*; 
+
+public class Exercicio01 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String cidades[] = new String[20];
+		float distancias[] = new float[20];
+		int flag;
+		
+		
+		String cidade;
+		//input
+		for(int cont = 0; cont < 20; cont++) {
+			do {
+				System.out.println("Digite o nome da cidade: ");
+				cidade = sc.nextLine();
+				
+				if(cidade.equals("")) {
+					System.out.println("O nome da cidade não pode ser nulo!!");
+				}
+			} while(cidade.equals(""));
+			
+			//
+			
+			do {
+				System.out.println("Qual a distância até BH:");
+				distancias[cont] = sc.nextFloat();
+				
+				if(distancias[cont] < 500) {
+					System.out.println("A distância até bh não pode ser menor que 500km!!");
+				}
+				System.out.println("------------------------------------------------------");
+			} while(distancias[cont] < 500);
+			
+			sc.nextLine();
+			
+			do {
+				System.out.println("Deseja continuar cadastrando? [0 = não // 1 = sim] ");
+				flag = sc.nextInt();
+				
+				if(flag > 1 || flag < 0) {
+					System.out.println("Digite uma opção válida");
+				}
+			} while(cidade.equals(""));
+		}
+		
+		//output
+		
+		
+	}
+}

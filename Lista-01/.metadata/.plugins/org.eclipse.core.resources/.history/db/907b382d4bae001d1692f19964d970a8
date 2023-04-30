@@ -1,0 +1,28 @@
+package exercicio03;
+import java.util.Scanner;
+
+public class Exercicio03 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		float salario, salarioAjustado, valeTransporte;
+		int tempoDeCasa = 0;
+		
+		System.out.println("-------------------------------------------------------");
+		System.out.println("     Empresa ABCDário. Sempre trabalhando por você ");
+		System.out.println("-------------------------------------------------------");
+		System.out.println("Há quantos anos você trabalha na empresa? ");
+		tempoDeCasa = sc.nextInt();
+		System.out.print("Qual o valor do seu salário? ");
+		salario = sc.nextInt();
+		
+		if(tempoDeCasa <= 5) { 
+			if(salario <= 300) {
+				salarioAjustado = salario + 50;
+				salarioAjustado -= (5/100)*salarioAjustado;
+			}else{
+				
+			}
+		}	
+	}
+}

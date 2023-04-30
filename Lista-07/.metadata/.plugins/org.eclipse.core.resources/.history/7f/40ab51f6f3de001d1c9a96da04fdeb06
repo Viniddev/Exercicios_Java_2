@@ -1,0 +1,44 @@
+import java.util.*;
+public class CalculoChamadaTelefonica {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String horarioInicial;
+		String horarioFinal;
+		boolean horaValida;
+		
+		do {
+			do {
+				horaValida = true;
+				System.out.println("Digite a hora de inicio da chamada: ");
+				horarioInicial = sc.nextLine();
+				System.out.println("Digite a hora final da chamada: ");
+				horarioFinal = sc.nextLine();
+				
+				horaValida = validarFaixaHoraria(horarioInicial, horarioFinal);
+			} while(!horaValida);
+			
+		} while(true);
+	}
+	
+	public static boolean validarFaixaHoraria(String inicio, String fim) {
+		int horaInicio, horaFim;
+		int minInicio, minFim;
+		boolean validator = true;
+		
+		horaInicio  = Integer.parseInt(inicio.substring(0, 2));
+		horaFim = Integer.parseInt(fim.substring(0, 2));
+		minInicio = Integer.parseInt(inicio.substring(3));
+		minFim = Integer.parseInt(fim.substring(3));
+		
+		if(horaInicio > 23 || horaFim > 23 || minInicio > 59 || minFim > 59) {
+			System.out.println("Valores acima de 23h, favor digitar uma faixa horaria valida");
+			validator = false;
+		}else if(horaInicio > horaFim) {
+			System.out.println("Valores acima de 23h, favor digitar uma faixa horaria valida");
+			validator = false;
+		}
+		
+		return validator;
+	}
+}

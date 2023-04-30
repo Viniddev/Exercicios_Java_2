@@ -1,0 +1,139 @@
+import java.util.*;
+
+interface globalVals{
+	Scanner sc = new Scanner(System.in);
+	String cidades[] = {"Belo Horizonte", "São Paulo", "Rio De Janeiro", "Salvador", "Curitiba"};
+	String modelosAcomodacoes[] = {"standart", "luxo", "super luxo"};
+	float estadias[] = new float[100];
+	String nomes[] = new String[100];
+}
+
+public class Exercicio01 implements globalVals{
+
+	public static void main(String[] args) {
+ 		String cidade;
+ 		String classeQuartos;
+ 		int checkIn;
+ 		int checkOut = 0;
+ 		int totalHospedes;
+		boolean encontrou = false;
+		
+		System.out.println("Rede de Hotéis Novo Horizonte [fim = exit]");
+		System.out.println("---------------------------------------");
+		for(int x = 0; x < 100; x++) {
+			
+			//Nome
+	 		System.out.print("Digite o nome do cliente: ");
+	 		nomes[x] = sc.nextLine();
+	 		
+	 		if(nomes[x].equalsIgnoreCase("fim")) {
+	 			nomes[x] = null;
+	 			System.out.println("Obrigado por usar nossos serviços;");
+	 			totalHospedes;
+	 			break;	
+	 		}
+	 		
+	 		//chekIn e checkOut
+	 		do {
+	 			System.out.print("Que dia fará o checkIn? ");
+	 			checkIn = sc.nextInt();
+	 			System.out.print("Que dia fará o checkOut? ");
+	 			checkOut = sc.nextInt();
+	 			
+	 			if(checkIn > checkOut || checkIn > 31 || checkOut > 31) {
+	 				System.out.println("Datas inválidas, digite novamente!");
+	 			}
+	 		} while(checkIn > checkOut ||checkIn > 31 || checkOut > 31);
+	 		
+	 		sc.nextLine();
+	 		
+	 		//Acomodação
+	 		do {
+	 			System.out.println("--------------------------------------------");
+	 			System.out.println("Qual o tipo de acomodação deseja? ");
+	 			System.out.println("1) STANDART");
+	 			System.out.println("2) LUXO");
+	 			System.out.println("3) SUPER LUXO");
+	 			System.out.print("OPÇÃO: ");
+	 			classeQuartos = sc.nextLine();
+	 			
+	 			encontrou = acomodacaoEhValida(classeQuartos);
+	 			
+	 			if(!encontrou) {
+	 				System.out.println("Digite uma opção válida! ");
+	 			}
+	 		} while(!encontrou);
+	 		
+	 		encontrou = false;
+	 		
+	 		//Cidade
+	 		do {
+	 			System.out.println("--------------------------------------------");
+	 			System.out.println("Qual cidade deseja se hospedar? ");
+	 			System.out.println("1) BELO HORIZONTE");
+	 			System.out.println("2) SÃO PAULO");
+	 			System.out.println("3) RIO DE JANEIRO");
+	 			System.out.println("4) SALVADOR");
+	 			System.out.println("5) CURITIBA");
+	 			System.out.print("OPÇÃO:");
+	 			cidade = sc.nextLine();
+	 	
+	 			encontrou = cidadeEhValida(cidade);
+	 			
+	 			if(!encontrou) {
+	 				System.out.println("Digite uma opção válida! ");
+	 			}
+	 		} while(!encontrou);
+	 		
+	 		estadias[x] = calcularConta(checkIn, checkOut, classeQuartos);
+	 		System.out.println("---------------------------------------");
+		}
+		
+		exibirQuadroDeValores();
+		
+	}	
+	
+	public static boolean cidadeEhValida(String x) {
+		boolean find = false;
+		for(int c = 0; c < 5; c++) {
+			if(x.equalsIgnoreCase(cidades[c])) {
+				find = true;
+				break;
+			}
+		}
+		return find;
+	}
+	
+	public static boolean acomodacaoEhValida(String x) {
+		boolean find = false;
+		for(int c = 0; c < 3; c++) {
+			if(x.equalsIgnoreCase(modelosAcomodacoes[c])) {
+				find = true;
+				break;
+			}
+		}
+		return find;
+	}
+	
+	public static float calcularConta(int checkIn,int checkOut, String acomodacao) {
+		float estadia;
+		if(acomodacao.equalsIgnoreCase("standart")) {
+			estadia = 120 * (checkOut - checkIn);
+		}else if(acomodacao.equalsIgnoreCase("luxo")) {
+			estadia = 150 * (checkOut-checkIn);
+		}else {
+			estadia = 180 * (checkOut-checkIn);
+		}
+		return estadia;
+	}
+	
+	public static void exibirQuadroDeValores() {
+		System.out.println("Nome		|	Valor das Estadias");
+		for(int x = 0; x < total; x++) {
+			System.out.printf("%20s | R$ %20.2f", nomes[x], estadias[x]);
+			if(nomes[x].equals(null)) {
+				break;
+			}
+		}
+	}
+}

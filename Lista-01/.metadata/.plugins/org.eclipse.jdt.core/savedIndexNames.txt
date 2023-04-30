@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\Users\Diasv\OneDrive\Área de Trabalho\Trabalho\Estudos Java\Listas-Segundo-Semestre\Lista-01\.metadata\.plugins\org.eclipse.jdt.core
+950989839.index
+2712118709.index
+1865797976.index
+3600848163.index

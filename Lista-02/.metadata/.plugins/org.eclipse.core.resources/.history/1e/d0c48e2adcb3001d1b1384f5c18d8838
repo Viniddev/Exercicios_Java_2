@@ -1,0 +1,41 @@
+package exercicio01;
+import java.util.*;
+
+public class Exercicio01 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String funcionarios[][] = new String[4][3];
+		double salario;
+		int dependentes; 
+		
+		for(int i = 0; i < 4; i++) {
+			System.out.print("Digite seu nome: ");
+			funcionarios[i][0] = sc.next();
+			System.out.print("Digite seu salário: ");
+			funcionarios[i][1] = sc.next();
+			System.out.print("Digite quantos dependentes você possui: ");
+			funcionarios[i][2] = sc.next();
+			System.out.println("------------------------------------------------");
+		}
+		
+		for(int i = 0; i < 4; i++) {
+			salario = Float.valueOf(funcionarios[i][1]).floatValue();
+			dependentes = Integer.parseInt(funcionarios[i][2]);
+			
+			if(salario > 0 && salario < 1000) {
+				salario = salario + salario * 0.3;
+			}else if(salario < 2000) {
+				salario = salario + salario * 0.2;
+			}else if(salario >= 2000){
+				salario = salario + salario * 0.1;
+			}else {
+				System.out.print("Erro na análise dos dados");
+				salario = 0;
+			}
+			
+			salario += 50 * dependentes;
+			funcionarios[i][1] = String.valueOf(salario);
+		}
+	}
+}

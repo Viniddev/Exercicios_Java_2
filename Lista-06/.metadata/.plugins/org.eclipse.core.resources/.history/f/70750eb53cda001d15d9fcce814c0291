@@ -1,0 +1,79 @@
+import java.util.*;
+
+public class digitoVerificador {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String cod;
+		boolean possuiLetras;
+		String digitosVerificadores;
+		int verificador1;
+		int verificador2;
+		
+		do {
+			//validar numero de digitos
+			do {
+				possuiLetras = true;
+				System.out.print("Digite o código: ");
+				cod = sc.nextLine();
+				
+				if(cod.length() < 11) {
+					System.out.println("Tamanho inválido");
+				}else {
+					
+					/* 
+					 for(int i = 0; i <= cod.length(); i++) {
+						if(cod.substring(i).matches("[A-Z]*")) {
+							System.out.println("Possui letras");
+							possuiLetras = true;
+						}
+					}
+					*/
+					
+					for(int i = 0; i < 11; i++) {
+						if(cod.charAt(i) < '0' || cod.charAt(i) > '9') {
+							System.out.println("Possui letras ou digitos especiais no código;");
+							possuiLetras = false;
+							break;
+						}
+					}
+				}
+			} while(cod.length() < 11 || !possuiLetras);
+			
+			digitosVerificadores = calcularDigitos(cod);
+			
+			verificador1 = Character.digit(digitosVerificadores.charAt(0), 10);
+			verificador2 = Character.digit(digitosVerificadores.charAt(1), 10);
+			
+			if(verificador1 == cod.length()- 2 && verificador2 == cod.length() - 1) {}
+			
+		} while(true);
+	}
+	
+	public static String calcularDigitos(String codigo) {
+		String digitosVerificadores;
+		float digito1 = 0;
+		float digito2 = 0;
+		String dig1Final;
+		String dig2Final;
+		String numeros;
+		
+		numeros = codigo.substring(0, 10);
+		
+		for(int c = 0; c < 10; c++) {
+			digito1 += Character.digit(numeros.charAt(c), 10);
+			digito2 *=Character.digit(numeros.charAt(c), 10);
+		}
+		
+		digito1 = (int) (digito1 / 10);
+		dig1Final = String.valueOf(digito1);
+		
+		dig2Final = String.valueOf(digito2);
+		dig2Final = dig2Final.substring( dig2Final.length() - 1);
+		
+		digitosVerificadores = dig1Final + dig2Final;
+		
+		return digitosVerificadores;
+	}
+
+}

@@ -1,0 +1,16 @@
+package exercicio02;
+import java.util.Scanner;
+
+public class Exercicio02 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Digite a primeira nota: ");
+		lado1 = sc.nextFloat();
+		System.out.print("Digite a segunda nota: ");
+		lado2 = sc.nextFloat();
+		System.out.print("Digite a terceira nota: ");
+		lado3 = sc.nextFloat();
+	}
+}

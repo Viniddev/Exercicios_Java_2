@@ -1,0 +1,88 @@
+package exercicio01;
+import java.util.*; 
+
+public class Exercicio01 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String cidades[] = new String[20];
+		float distancias[] = new float[20];
+		int flag;
+		String consulta;
+		String cidade;
+		int numBusca = 0;
+		boolean encontrou;
+		
+		//input
+		for(int cont = 0; cont < 20; cont++) {
+			do {
+				System.out.println("Digite o nome da cidade: ");
+				cidade = sc.nextLine();
+				
+				if(cidade.equals("")) {
+					System.out.println("O nome da cidade não pode ser nulo!!");
+				}
+			} while(cidade.equals(""));
+			
+			//
+			
+			do {
+				System.out.println("Qual a distância até BH:");
+				distancias[cont] = sc.nextFloat();
+				
+				if(distancias[cont] < 500) {
+					System.out.println("A distância até bh não pode ser menor que 500km!!");
+				}
+			} while(distancias[cont] < 500);
+			
+			//
+			System.out.println("------------------------------------------------------");
+			
+			do {
+				System.out.println("Deseja continuar cadastrando? [0 = não // 1 = sim] ");
+				flag = sc.nextInt();
+				
+				if(flag > 1 || flag < 0) {
+					System.out.println("Digite uma opção válida!!");
+				}
+			} while(flag > 1 || flag < 0);
+			
+			sc.nextLine();
+			
+			if(flag == 0) {
+				break;
+			}
+		}
+		
+		//output
+		
+		
+		do {
+			System.out.println("MODO BUSCADOR");
+			System.out.println("Para onde deseja viajar? ");
+			consulta = sc.nextLine();
+			
+			if(!consulta.equalsIgnoreCase("sair")) {
+				System.out.println("Fim do programa! Obrigado por usar nossos serviços");
+				break;
+				
+			}
+			
+			encontrou = false;
+			for (numBusca = 0; numBusca < 20; numBusca++){
+				if (consulta.equalsIgnoreCase(cidades[numBusca])){
+					encontrou = true;
+					break;
+				}
+			}
+			if (encontrou) {
+				System.out.println("Nome encontrado na posição " + numBusca + " do vetor!");
+			}else{
+				System.out.println("O Nome digitado NÃO FOI ENCONTRADO NO VETOR !");
+			}
+			
+		} while(!consulta.equalsIgnoreCase("sair"));
+		
+		
+	}
+}

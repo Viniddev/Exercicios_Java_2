@@ -1,0 +1,16 @@
+package exercicio01;
+import java.util.*;
+
+public class Exercicio01 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String name = " ";
+		int dependentes;
+		float salario;
+		
+		for(int cont = 0; cont < 10; cont++) {}
+		
+
+	}
+}

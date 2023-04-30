@@ -1,0 +1,55 @@
+package exercicio03;
+import java.util.Scanner;
+
+public class Exercicio03 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		float salario, salarioAjustado, valeTransporte;
+		int tempoDeCasa = 0;
+		
+		System.out.println("-------------------------------------------------------");
+		System.out.println("     Empresa ABCDário. Sempre trabalhando por você ");
+		System.out.println("-------------------------------------------------------");
+		System.out.println("Há quantos anos você trabalha na empresa? ");
+		tempoDeCasa = sc.nextInt();
+		System.out.print("Qual o valor do seu salário? ");
+		salario = sc.nextInt();
+		
+		
+		if(tempoDeCasa >= 0 && tempoDeCasa <= 5) { 
+			if(salario > 0 && salario <= 300) {
+				salarioAjustado = salario + 50;
+				valeTransporte = (5/100)*salarioAjustado;
+			}else{
+				salarioAjustado = salario + 80;
+				valeTransporte = (6/100)*salarioAjustado;
+			}
+		}else if(tempoDeCasa <= 10) {
+			if(salario <= 500) {
+				salarioAjustado = salario + salario * (15/100);
+				valeTransporte = 70;
+			}else if(salario > 500 && salario <=2000 ) {
+				salarioAjustado = salario + salario * (13/100);
+				valeTransporte = 90;
+			}else{
+				salarioAjustado = salario + salario * (12/100);
+				valeTransporte = salarioAjustado * (8/100);
+			}
+		}else{
+			salarioAjustado = salario + 300;
+			valeTransporte = salarioAjustado * (4/100);
+		}
+		salarioAjustado -= valeTransporte;
+		
+		
+		System.out.println("-------------------------------------------------------");
+		System.out.printf("Para o cliente que trabalha a %d anos e recebe R$ %.2f por mes, oferecemos: \n\n", tempoDeCasa, salario);
+		System.out.printf("Reajuste no valor do vale transporte para R$ %.2f \n", valeTransporte);
+		System.out.printf("Reajuste no valor do Salário para R$ %.2f \n", salarioAjustado);
+		
+		System.out.println("-------------------------------------------------------");
+		
+	}
+}

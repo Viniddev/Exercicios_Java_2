@@ -1,0 +1,35 @@
+import java.util.*;
+public class CalculoChamadaTelefonica {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String horarioInicial;
+		String horarioFinal;
+		boolean horaValida;
+		
+		do {
+			do {
+				horaValida = true;
+				System.out.println("Digite a hora de inicio da chamada: ");
+				horarioInicial = sc.nextLine();
+				System.out.println("Digite a hora final da chamada: ");
+				horarioFinal = sc.nextLine();
+				
+				horaValida = horaEhValida(horarioInicial, horarioFinal);
+				
+				if(!horaValida) {
+					System.out.println("Digite um valor de horario válido (final > inicial)!");
+				}
+			} while(!horaValida);
+			
+		} while(true);
+	}
+	
+	public static boolean horaEhValida(String inicio, String fim) {
+		int horaInicio, horaFim;
+		int minInicio, minFim;
+		
+		
+		return;
+	}
+}

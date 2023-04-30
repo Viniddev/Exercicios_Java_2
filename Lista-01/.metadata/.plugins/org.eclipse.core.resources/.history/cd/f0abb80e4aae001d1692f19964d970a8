@@ -1,0 +1,19 @@
+package exercicio03;
+import java.util.Scanner;
+
+public class Exercicio03 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		float salario, salarioAjustado, valeTransporte;
+		int tempoDeCasa = 0;
+		
+		System.out.print("-------------------------------------------------------\n\n");
+		System.out.print("Empresa ABCDário. Sempre trabalhando por você \n");
+		System.out.print("-------------------------------------------------------\n\n");
+		System.out.print("Há quantos anos você trabalha na empresa? ");
+		tempoDeCasa = sc.nextInt();
+		
+		
+	}
+}
